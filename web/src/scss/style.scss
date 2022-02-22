@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+$clr-neon: hsl(317 100% 54%);
+$clr-bg: hsl(323 21% 16%);
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: $clr-bg;
+    font-family: 'Varela Round', sans-serif;
+    color: $clr-neon;
+    font-size: 15rem;
+}
+
+.neon-button{
+    color: $clr-neon;
+    display: inline-block;
+    text-decoration: none;
+    // border: $clr-neon 0.125em solid;
+    padding: 0.25em 1em;
+    // border-radius: 0.25em;
+    cursor: pointer;
+
+    text-shadow: 
+        0 0 0.125em hsl(0 0 100% / .2),
+        0 0 0.25em $clr-neon;
+     // text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
+     animation: animate 1s linear infinite;
+    // 
+    // 
+    // box-shadow: inset 0 0 0.5em 0 $clr-neon, 
+    // 0 0 0.5em 0 $clr-neon;
+
+    position:relative;
+}
+
+.neon-button::before{
+    pointer-events: none;
+    content:'';
+    position: absolute;
+    background: $clr-neon;
+    top:50%;
+    left:0;
+    width:100%;
+    height:100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(.5, 0.50);
+    filter: blur(1.4em);
+    opacity: 0.7;
+}
+
+// .neon-button:hover{
+//     background: $clr-neon;
+//     color: $clr-bg;
+//     text-shadow: none;
+// }
+
+@keyframes animate {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter:hue-rotate(360deg)
+    }
+}

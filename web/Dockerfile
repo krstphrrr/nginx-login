@@ -1,5 +1,11 @@
 FROM node:alpine
+
+RUN apk add bash && \
+    apk add vim && \
+    apk add curl
+
 WORKDIR /app
+
 # COPY ./web/package.json ./
 # COPY ./web/package-lock.json ./
 # COPY ./web/tsconfig.json ./
